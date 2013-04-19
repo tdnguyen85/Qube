@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Qub3</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="navbar navbar-static-top">
+	<div class="navbar-inner">
+		<a class="brand" href="#">Qube</a>
+    <ul class="nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">New Qube</a></li>
+      <li><a href="#">Get Qubes</a></li>
+    </ul>
+    <form class="navbar-search pull-left" action="results#find" method="get">
+  		<input type="text" class="search-query" placeholder="Search">
+		</form>
+    <div style="float: right">
+			<img src='<%= @picture %>' style="margin-right: 10px" />
+		  <% if current_user %>
+		    Signed in as <strong><%= current_user.name %></strong>!
+		    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+		  <% else %>
+		    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+		  <% end %>
+		</div>
+	</div>
+</div>
+<%= yield %>
+
+</body>
+</html>
