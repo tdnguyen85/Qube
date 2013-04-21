@@ -1,0 +1,30 @@
+<div class="row-fluid">
+  <div class="span11 offset1">
+    <h1>Listing of Qubes</h1>
+    <br />
+    <table class="table table-striped table-hover table-condensed">
+      <tr>
+        <th class="thead">Title</th>
+        <th class="thead">Description</th>
+        <th class="thead">User</th>
+        <th class="thead">Date created</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @bdcards.each do |bdcard| %>
+      <tr>
+        <td><%= bdcard.title %></td>
+        <td><%= bdcard.description %></td>
+        <td><%= bdcard.user_id %></td>
+        <td><%= bdcard.date_created %></td>
+        <td><%= link_to 'Show', bdcard %></td>
+        <td><%= link_to 'Edit', edit_bdcard_path(bdcard) %></td>
+      </tr>
+    <% end %>
+    </table>
+
+    <br />
+
+    <%= link_to 'New Bdcard', new_bdcard_path %>

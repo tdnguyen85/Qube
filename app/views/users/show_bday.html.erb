@@ -1,0 +1,13 @@
+
+<%= @message %>
+<% @counter = 0 %>
+<% @match.size.times do |item| %>
+<a href="/bdcards/new">
+<img src="<%= @picture_bday %>" />
+<%= @profile_bday['name'] %>
+</a>
+<% end %>
+<br />
+<%= link_to 'Create Qube', new_bdcard_path %>
+<br />
+<a href="/fbwall">Click to post to facebook wall</a>

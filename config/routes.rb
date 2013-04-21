@@ -1,11 +1,16 @@
 Qub3::Application.routes.draw do
-  root :to => 'users#welcome', :as => 'welcome'
-  match 'auth/:provider/callback', :to => 'sessions#create'
-  match 'auth/failure', :to => redirect('/')
-  match 'signout', :to => 'sessions#destroy', :as => 'signout'
-  match 'mainpage', :to => 'users#mainpage', :as => 'mainpage'
-  get 'search', :controller => 'results', :action => 'create'
+  resources :bdcards
 
+
+  root :to => 'users#welcome', :as => 'welcome'
+  match '/auth/:provider/callback', :to => 'sessions#create'
+  match '/auth/failure', :to => redirect('/')
+  match '/signout', :to => 'sessions#destroy', :as => 'signout'
+  match '/mainpage', :to => 'users#mainpage', :as => 'mainpage'
+  get '/showbirthday', :to => 'users#show_bday', :as => 'showbirthday'
+  post '/email', :to => 'users#send_email', :as => 'email'
+  #post 'fbwall', :to => 'users#post_to_fb_wall', :as => 'fbwall'
+  get '/fbwall', :to => 'users#post_to_fb_wall', :as => 'fbwall'
   # The priority is based upon order of creation:
   
   # first created -> highest priority.

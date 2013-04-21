@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid
-  has_many :selections
+  has_many :bdcards
 
   def self.from_omniauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -13,12 +13,5 @@ class User < ActiveRecord::Base
 	  end
 	end
 
-	def facebook
-	  @facebook ||= Koala::Facebook::API.new(oauth_token)
-	  block_given? ? yield(@facebook) : @facebook
-	rescue Koala::Facebook::APIError => e
-	  logger.info e.to_s
-	  nil # or consider a custom null object
-	end
 
 end

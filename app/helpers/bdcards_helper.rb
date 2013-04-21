@@ -1,0 +1,2 @@
+module BdcardsHelper
+end

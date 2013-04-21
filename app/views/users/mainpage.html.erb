@@ -1,6 +1,9 @@
 
 
+<%= link_to 'Create Qube', new_bdcard_path %>
 
-<% @likes_list.each do |item| %>
-<%= item['name'] %>
-<% end %>
+<br>
+
+<%= @match %>
+<%= @current_date %>
+<img src="<%= @picture_bday %>" />
