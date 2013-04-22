@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  
-  before_filter :fb_graph
+
 
   private
   
@@ -11,13 +10,29 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user
 
-  def fb_graph
-		if current_user
-			@user = User.find_by_id(session[:user_id])
-			token = @user.oauth_token
-			@graph = Koala::Facebook::API.new(token)
+  def set_match
+  	current_date 
+  	if current_user && @graph
+	    @friends = @graph.get_connections("me", "friends?fields=id,name,birthday,picture.type(large)")
+			@match = []
+			@friends.each do |item|
+				if item['birthday'].to_s.split('/')[0..1].join == '0620'
+					@match << item['id']
+				end
+			end
 		end
+  end
 
+  def profile_info
+  	if @graph
+			@user_profile = @graph.get_object('me')
+			@picture = @graph.get_picture(@user_profile['id'])
+		end
 	end
+	
+  def current_date
+		@current_date = Time.now.strftime("%m/%d/%Y").split("/")[0..1].join
+	end
+
 
 end

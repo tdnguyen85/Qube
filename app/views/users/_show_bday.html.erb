@@ -1,0 +1,14 @@
+
+<%= @message %>
+<br />
+<% @counter = 0 %>
+<% @match.size.times do |item| %>
+<a href="/bdcards/new">
+<img src="<%= @picture_bday %>" />
+<%= @profile_bday['name'] %>
+</a>
+<% end %>
+<br />
+<h5>Please create a birthday card for you friend.  You can use Qube to post a link to this card on your friend's facebook wall.  Click the Creat Qube button to do so.</h5>
+<br />
+<%= link_to "Create Qube", {:controller => "bdcards", :action => "new"}, :class => "btn" %>

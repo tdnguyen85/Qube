@@ -25,7 +25,7 @@
 		<h4>Post this Qube to your friend's facebook wall.</h4>
 		<form action="/fbwall" method="get">
 			<input type="hidden" name="link" value="/bdcards/<%= @bdcard.id %>">
-			<input type="hidden" name='fbid' value="<%= @match[0] %>"></a>
+			<input type="hidden" name='fbid' value="<%= @match %>"></a>
 			<button class="btn">Post to Wall</button>
 		</form>
 		<%= link_to 'Edit', edit_bdcard_path(@bdcard) %> |

@@ -1,25 +1,26 @@
 
-
-<% if @current_user == true %>
-<%= link_to "Log In With Facebook", "auth/facebook" %>
-<% else %>
-<%= link_to 'Log Out', signout_path %>
-<% end %>
-
-<%= form_tag('/email', :method => 'post') do %>
-<div>
-<%= label_tag :to %>
-<%= text_field_tag :to %>
+<br />
+<br />
+<div class=" color-5">
+	<div class="container welcome">
+		<br />
+		<br />
+		<h1>Qube is a web app that lets you create birthday cards for your facebook friends.</h1>
+		<br />
+		<br />
+	</div>
 </div>
-<div>
-<%= label_tag :subject %>
-<%= text_field_tag :subject %>
+<br />
+<br />
+<br />
+<br />
+<div class="color-5">
+	<div class="container welcome">
+		<br />
+		<br />
+		<%= link_to "Log In With Facebook", "auth/facebook", :class => "welcome" %>
+		<br />
+		<br />
+		<br />
+	</div>
 </div>
-<div>
-<%= label_tag :body %>
-<%= text_field_tag :body %>
-</div>
-<div>
-	<%= submit_tag("Send Email") %>
-</div>
-<% end %>

@@ -1,9 +1,25 @@
-
-
-<%= link_to 'Create Qube', new_bdcard_path %>
-
-<br>
-
-<%= @match %>
-<%= @current_date %>
-<img src="<%= @picture_bday %>" />
+<br />
+<br />
+<br />
+<div class="color-5">
+<div class="container welcome">
+	<div >
+		<br />
+		<br />
+		<h4 class="justify">Click on the button to see if any of your friends' birthday is today.</h4>
+		<br />
+		<div class="span4 offset3">
+			<form action="/showbirthday" method="get">
+				<button class="btn btn-large btn-block btn-success" id="mp-button" type="button">Show Birthdays</button>
+			</form>
+		</div>
+		<br />
+		<%= render "show_bday" %>
+		<br>
+		
+		<%= @match %>
+		<%= @current_date %>
+		<img src="<%= @picture_bday %>" />
+	</div>
+</div>
+</div>

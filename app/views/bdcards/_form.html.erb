@@ -23,7 +23,10 @@
     <%= f.label :user_id %><br />
     <%= f.number_field :user_id %>
   </div>
-  
+  <div class="field">
+    <%= f.label :date_created %><br />
+    <%= f.hidden_field :date_created %>
+  </div>
   <div class="actions">
     <%= f.submit "Create Qube" %>
   </div>

@@ -1,0 +1,42 @@
+
+h1, h2, h3, h4, h5 {
+	color: white;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+#mp-button {
+}
+.welcome {
+
+	font-family: Verdana, Tahoma;
+	font-size: 30px;
+	text-align: center;
+	color: white;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+.med-text {
+	text-align: center;
+}
+.justify {
+	text-align: justify;
+}
+.mainpage {
+	background-color: #33338b;
+}
+
+.color-5 {
+	background-color: #033E6B;
+}
+.color-4 {
+	background-color: #25567B;
+}
+.color-3 {
+	background-color: #0B61A4;
+}
+.color-2 {
+	background-color: #3F92D2;
+}
+.color-1 {
+	background-color: #66A3D2;
+}

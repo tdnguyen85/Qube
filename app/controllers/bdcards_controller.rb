@@ -3,6 +3,7 @@ class BdcardsController < ApplicationController
   # GET /bdcards.json
   def index
     @bdcards = Bdcard.all
+    profile_info
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,8 +14,11 @@ class BdcardsController < ApplicationController
   # GET /bdcards/1
   # GET /bdcards/1.json
   def show
+    set_match
+    profile_info
+
     @bdcard = Bdcard.find(params[:id])
-    
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @bdcard }
@@ -25,6 +29,7 @@ class BdcardsController < ApplicationController
   # GET /bdcards/new.json
   def new
     @bdcard = Bdcard.new
+    profile_info
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +40,15 @@ class BdcardsController < ApplicationController
   # GET /bdcards/1/edit
   def edit
     @bdcard = Bdcard.find(params[:id])
+    profile_info
+
   end
 
   # POST /bdcards
   # POST /bdcards.json
   def create
     @bdcard = Bdcard.new(params[:bdcard])
+    profile_info
 
     respond_to do |format|
       if @bdcard.save
@@ -57,6 +65,7 @@ class BdcardsController < ApplicationController
   # PUT /bdcards/1.json
   def update
     @bdcard = Bdcard.find(params[:id])
+    profile_info
 
     respond_to do |format|
       if @bdcard.update_attributes(params[:bdcard])
@@ -74,6 +83,7 @@ class BdcardsController < ApplicationController
   def destroy
     @bdcard = Bdcard.find(params[:id])
     @bdcard.destroy
+    profile_info
 
     respond_to do |format|
       format.html { redirect_to bdcards_url }
