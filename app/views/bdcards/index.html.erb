@@ -1,33 +1,38 @@
-<div class="row container">
-  <div class="span12">
-    <br />
-    <h1 class="page-header">Listing of Qubes, Hellow World</h1>
-    <br />
-    <table class="table table-striped table-hover table-condensed">
-      <tr>
-        <th class="thead">Title</th>
-        <th class="thead">Description</th>
-        <th class="thead">User</th>
-        <th class="thead">Date created</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
+<br />
+<br />
+<div class="color-5">
+  <div class="row container welcome">
+    <div class="span12">
+      <br />
+      <h1 class="page-header">Listing of Qubes</h1>
+      <br />
+      <table class="table table-condensed">
+        <tr>
+          <th class="thead">Title</th>
+          <th class="thead">Description</th>
+          <th class="thead">User</th>
+          <th class="thead">Date created</th>
+          <th></th>
+          <th></th>
+          
+        </tr>
 
-    <% @bdcards.each do |bdcard| %>
-      <tr>
-        <td><%= bdcard.title %></td>
-        <td><%= bdcard.description %></td>
-        <td><%= bdcard.user_id %></td>
-        <td><%= bdcard.date_created %></td>
-        <td><%= link_to 'Show', bdcard %></td>
-        <td><%= link_to 'Edit', edit_bdcard_path(bdcard) %></td>
-      </tr>
-    <% end %>
-    </table>
+      <% @bdcards.each do |bdcard| %>
+        <tr>
+          <td><%= bdcard.title %></td>
+          <td><%= bdcard.description %></td>
+          <td><%= bdcard.user_id %></td>
+          <td><%= bdcard.date_created %></td>
+          <td><%= link_to 'Show', bdcard, :class => "regular-text" %></td>
+          <td><%= link_to 'Edit', edit_bdcard_path(bdcard), :class => "regular-text" %></td>
+        </tr>
+      <% end %>
+      </table>
 
-    <br />
+      <br />
 
-    <%= link_to 'New Bdcard', new_bdcard_path %>
+      <%= link_to 'New Qube', new_bdcard_path, :class => "regular-text" %>
+    </div>
   </div>
+  <br />
 </div>

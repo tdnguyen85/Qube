@@ -3,32 +3,33 @@
 		<p id="notice"><%= notice %></p>
 		<br />
 		<br />
-		<table class="table table-striped table-hover table-condensed">
-			<tr>
-		  	<td class="thead">Title:</td>
-		  	<td class="thead">Descripton:</td>
-		  	<td class="thead">User:</td>
-		  	<td class="thead">Date Create:</td>
-		  </tr>
-		  <tr>
-			  <td><%= @bdcard.title %></td>
-			
-			  <td><%= @bdcard.description %></td>
-			
-			  <td><%= @bdcard.user_id %></td>
-		 
-			  <td><%= @bdcard.date_created %></td>
-			</tr>
-		</table>
+		<h1 class="page-header">To: <%= @bdcard.title %></h1>
+		<h1 class="page-header"><%= @bdcard.description %></h1>
+		<h1 class="page-header">.</h1>
+		<h1 class="page-header">From: <%= @current_user.name %></h1>
+
+
+		
 		<%= @match %>
 		<br />
-		<h4>Post this Qube to your friend's facebook wall.</h4>
-		<form action="/fbwall" method="get">
-			<input type="hidden" name="link" value="/bdcards/<%= @bdcard.id %>">
-			<input type="hidden" name='fbid' value="<%= @match %>"></a>
-			<button class="btn">Post to Wall</button>
-		</form>
-		<%= link_to 'Edit', edit_bdcard_path(@bdcard) %> |
-		<%= link_to 'Back', bdcards_path %>
+		<h4 class="regular-text">Post this Qube to your friend's facebook wall.</h4>
+		<div class="span2 offset5">
+			<form action="/fbwall" method="get">
+				<input type="hidden" name="link" value="qub3/bdcards/<%= @bdcard.id %>">
+				<input type="hidden" name='fbid' value="<%= @match %>"></a>
+				<button class="btn btn-medium btn-block btn-success">Post to Wall</button>
+			</form>
+		</div>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<div class="span12">
+			<%= link_to 'Edit', edit_bdcard_path(@bdcard), :class => "regular-text" %> |
+			<%= link_to 'Back', bdcards_path, :class => "regular-text" %>
+		</div>
 	</div>
 </div>

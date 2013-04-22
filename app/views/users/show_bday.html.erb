@@ -1,13 +1,26 @@
-
-<%= @message %>
-<% @counter = 0 %>
-<% @match.size.times do |item| %>
-<a href="/bdcards/new">
-<img src="<%= @picture_bday %>" />
-<%= @profile_bday['name'] %>
-</a>
-<% end %>
 <br />
-<%= link_to 'Create Qube', new_bdcard_path %>
 <br />
-<a href="/fbwall">Click to post to facebook wall</a>
+<div class="welcome color-5"> 
+	<div class="container">
+		<br />
+		<h2><%= @message %></h2>
+		<br />
+		<% @counter = 0 %>
+		<% @match.size.times do |item| %>
+		<a href="/bdcards/new">
+		<img src="<%= @picture_bday %>" />
+		<h2><%= @profile_bday['name'] %></h2>
+		</a>
+		<% end %>
+		<br />
+		<h3>Please create a birthday card for you friend.  You can use Qube to post a link to this card on your friend's facebook wall.  Click the Creat Qube button to do so.</h3>
+		<br />
+		<div class="span4 offset4">
+			<%= link_to "Create Qube", {:controller => "bdcards", :action => "new"}, :class => "btn btn-large btn-block btn-success" %>
+		</div>
+		<br />
+		<br />
+	</div>
+	<br />
+	<br />
+</div>

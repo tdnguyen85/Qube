@@ -2,24 +2,22 @@
 <br />
 <br />
 <div class="color-5">
-<div class="container welcome">
-	<div >
-		<br />
-		<br />
-		<h4 class="justify">Click on the button to see if any of your friends' birthday is today.</h4>
-		<br />
-		<div class="span4 offset3">
-			<form action="/showbirthday" method="get">
-				<button class="btn btn-large btn-block btn-success" id="mp-button" type="button">Show Birthdays</button>
-			</form>
+	<div class="container welcome justify">
+		<div >
+			<br />
+			<br />
+			<h1>Click on the button to see if any of your friends' birthday is today.</h1>
+			<br />
+			<br />
+
+			<div class="span4 offset4">
+				
+				<%= link_to "Show Birthday", {:controller => "users", :action => "show_bday"}, :class => "btn btn-large btn-block btn-success" %>
+			</div>
+			<br />
+			<br />
+			<br />
+			<br />
 		</div>
-		<br />
-		<%= render "show_bday" %>
-		<br>
-		
-		<%= @match %>
-		<%= @current_date %>
-		<img src="<%= @picture_bday %>" />
 	</div>
-</div>
 </div>

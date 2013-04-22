@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	
-	before_filter :fb_graph, :show_bday, :birthday_match, :current_date
+	before_filter :fb_graph, :set_match, :show_bday, :birthday_match, :current_date
 	
 	def welcome
 
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 	def mainpage
 		set_match
 		profile_info
-		
+		@partial_switch = false 
 		#render :json => @likes_list
 	end
 
@@ -45,8 +45,8 @@ class UsersController < ApplicationController
 	end
 
 	def post_to_fb_wall
-		@fb_uid = params[:fbid]
-		@fb_id_final = @fb_uid[0]
+		#@fb_uid = params[:fbid]
+		#@fb_id_final = @fb_uid[0]
 		set_match
 		@graph.put_connections("me", "feed", :message => params[:link])
 		redirect_to mainpage_path
